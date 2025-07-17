@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Table with Pagination</title>
+  <style>
+    table {
+      width: 50%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #540aa8;
+      text-align: left;
+    }
+    .pagination {
+      text-align: center;
+      margin: 20px;
+    }
+    .pagination button {
+      margin: 0 5px;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+
+    <a href="C:/Users/BIKRAM/Desktop/Pallaviwork/HomePage.html"> Go Back to Home Page </a>
+
+  <table id="dataTable" style="background-color: antiquewhite;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be inserted here by JavaScript -->
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button onclick="prevPage()">Previous</button>
+    <span id="pageNumber">1</span>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+  const tableData = Array.from({ length: 50 }, (_, i) => ({
+    id: i + 1,
+    name: `User ${i + 1} Name`,
+    email: `user${i + 1}@gmail.com`
+  }));
+
+  const rowsPerPage = 10;
+  let currentPage = 1;
+
+  function displayTable() {
+    const tableBody = document.querySelector("#dataTable tbody");
+    tableBody.innerHTML = "";
+
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedItems = tableData.slice(start, end);
+
+    for (const row of paginatedItems) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${row.id}</td><td>${row.name}</td><td>${row.email}</td>`;
+      tableBody.appendChild(tr);
+    }
+
+    document.getElementById("pageNumber").textContent = currentPage;
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      displayTable();
+    }
+  }
+
+  function nextPage() {
+    if (currentPage < Math.ceil(tableData.length / rowsPerPage)) {
+      currentPage++;
+      displayTable();
+    }
+  }
+
+  // Initial load
+  displayTable();
+</script>
+
+</body>
+</html>

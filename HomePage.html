@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallavi Automaion Website</title>
+</head>
+<body>
+    <form method="post" style="background-color:gainsboro; width: 400px; margin: 0 auto;" > <fieldset>
+        <!--Input box-->
+        Fiest Name: <input type="text", id="1"/><br><br>
+        Middle Name: <input type="text", id="2"/><br><br>
+        Last Name: <input type="text", id="3"/><br><br>
+
+        <!--Radio button, name="gender" imp to select only one value-->
+        Choose Your Gender::<br> 
+                 Female<input type="radio", id="F" name="gender" value="gender"/>
+                 Male<input type="radio", id="M" value="male" name="gender"/>
+                 Other<input type="radio" id="Other" name="gender">
+                 <br><br>
+
+        Contact Number: <input type="number", id="4"/><br><br>
+
+        <!-- Single Drop down box, style="width: 20px;"-->
+        Country : 
+        <select>
+            <option value="Optional">Select Option</Option> </option>
+            <option value="IN">India </option>
+            <option value="UK">UK </option>
+            <option value="USA">USA </option>
+            <option value="Ch">Chaina </option>
+        </select><br><br>
+        
+        <!-- Multi Drop down box-->
+        Language:: <br> 
+        <select name="Language" id="Language" multiple >
+            <option value="Hin">Hindi </option>
+            <option value="eng">English </option>
+            <option value="tam">Tamil </option>
+            <option value="chi">Chaines </option>
+        </select><br><br>
+
+        <!--Check box-->
+        Know Programming Languages::<br>
+        JAVA<input type="checkbox">
+        PHP<input type="checkbox">
+        C#<input type="checkbox">
+        Python<input type="checkbox">
+        <br><br>
+
+        <!--Range bar(slider)-->
+        Select Age:: <input type="range" min="0" max="150" id="volume" name="volume" oninput="updateValue(this.value)">
+        <br>
+        You are <span id="VV">20</span> years.
+        <br><br>
+
+        <!--Date picker-->
+        Select Date:: <input type="date"><br>
+        Select Time:: <input type="time"><br>
+
+        <!--Color picker-->
+        Color:: <input type="color"><br><br>
+        
+        <!--Buttons-->
+        <input type="submit" value="Submit" >
+        <input type="Reset" value="Reset">
+        <input type="Reset" value="Cancel">
+
+        <a href="C:/Users/BIKRAM/Desktop/Pallaviwork/table.html"> Go to table </a>
+
+        <!--button onclick="window.location.href='table.html'">
+             Go to table </button>-->
+
+
+        <!--Js scrips-->
+        <script>
+            <!----Range-->
+            function updateValue(val){
+                document.getElementById('VV').textContent = val;
+            }
+        </script> 
+
+</fieldset>
+    </form>
+</body>
+</html>
